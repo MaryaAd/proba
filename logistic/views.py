@@ -1,3 +1,4 @@
+import APIView as APIView
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.decorators import api_view
 from rest_framework.filters import SearchFilter
@@ -21,6 +22,10 @@ class StockViewSet(ModelViewSet):
     filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = ['products']
 
+
+class TestView(APIView):
+    def get(self, request):
+        return Response('Hello, world')
 
 @api_view(['GET'])
 def sample_view(request):
